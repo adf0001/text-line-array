@@ -27,7 +27,7 @@ module.exports = {
 		tla.add("k7");
 		tla.addLine("k8");
 
-		console.log(tla.lineArray.join("\n"));
+		console.log(tla.lineArray);
 
 		done(!(
 			tla.lineArray.join("\n") === [
@@ -60,7 +60,7 @@ module.exports = {
 		tla.add("k");
 		tla.add("k2");
 
-		console.log(tla.lineArray.join("\n"));
+		console.log(tla.lineArray);
 
 		done(!(
 			tla.lineArray.join("\n") === [
@@ -88,18 +88,43 @@ module.exports = {
 
 		tla.end();	//like eof, for line-callback
 
-		console.log("====");
-		console.log(tla.lineArray.join("\n"));
-		console.log("====");
-		console.log(buf.join("\n"));
-		console.log("====");
+		console.log(tla.lineArray);
+		console.log(buf);
 
 		done(!(
 			tla.lineArray.join("\n") === (buf.join("\n") + "\n")
 		));
 	},
-	/*
-*/
+
+	"isEmpty()/clear()/toString()": function (done) {
+
+		var tla = text_line_array();
+
+		//.isEmpty()
+		if (!tla.isEmpty()) { done("isEmpty fail"); return; }
+		tla.add("");
+		if (!tla.isEmpty()) { done("isEmpty fail"); return; }
+
+		tla.add("f", "p1:");
+		tla.add("g\nh", "p1:");
+		tla.add("i\nj", "p2:");
+
+		tla.clear();
+		if (!tla.isEmpty()) { done("isEmpty fail"); return; }
+
+		tla.add("k");
+		tla.add("k2");
+
+		console.log(tla.lineArray);
+
+		done(!(
+			//.toString()
+			("" + tla) == [
+				"kk2",
+			].join("\n")
+		));
+	},
+
 };
 
 // for html page

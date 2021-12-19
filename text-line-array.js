@@ -99,6 +99,17 @@ TextLineArrayClass.prototype = {
 
 	endLine: function () { return this.addLine(""); },
 
+	isEmpty: function () {
+		return (this.lineArray.length < 1 || (this.lineArray.length == 1 && !this.lineArray[0]));
+	},
+
+	clear: function () {
+		this.lineArray = [];
+		this.lastLinePrefix = "";
+	},
+
+	toString: function () { return this.lineArray.join("\n"); },
+
 };
 
 //shortcut

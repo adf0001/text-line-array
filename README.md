@@ -33,7 +33,7 @@ tla.addLine(["k6", ""]);
 tla.add("k7");
 tla.addLine("k8");
 
-console.log(tla.lineArray.join("\n"));
+console.log(tla.lineArray);
 
 /*
 	tla.lineArray.join("\n") === [
