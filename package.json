@@ -1,0 +1,24 @@
+{
+  "name": "text-line-array",
+  "version": "1.0.1",
+  "description": "text line array",
+  "main": "text-line-array.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "text",
+    "line",
+    "array"
+  ],
+  "author": "fwg",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adf0001/text-line-array.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adf0001/text-line-array/issues"
+  },
+  "homepage": "https://github.com/adf0001/text-line-array#readme"
+}
