@@ -29,6 +29,9 @@ TextLineArrayClass.prototype = {
 
 	lineCallback: null,
 
+	//in some cases, a special lineSplitter should be set, such as when wmic.exe use '\r\r\n' to split line.
+	lineSplitter: /\r\n|\n\r|\n|\r/,	//can be replaced with /[\r\n]+/, if to skip void line.
+
 	//.addText: function (text [, linePrefix] )
 	addText: function (text, linePrefix) {
 		//line prefix
@@ -43,7 +46,7 @@ TextLineArrayClass.prototype = {
 			if (linePrefix) this.lastLinePrefix = linePrefix;
 		}
 
-		var sa = text.split(/\r\n|\n\r|\n|\r/);
+		var sa = text.split(this.lineSplitter);
 
 		//for last line in lineArray and the 1st line of the text
 		if (linePrefix === this.lastLinePrefix) {

@@ -125,6 +125,25 @@ module.exports = {
 		));
 	},
 
+	".lineSplitter": function (done) {
+
+		var tla = text_line_array();
+
+		tla.lineSplitter= /[\r\n]+/;
+
+		tla.add("aaa\r\r\nbbb\r\r\nccc");
+		
+		console.log(tla.lineArray);
+
+		done(!(
+			tla == [
+				"aaa",
+				"bbb",
+				"ccc",
+			].join("\n")
+		));
+	},
+
 };
 
 // for html page
