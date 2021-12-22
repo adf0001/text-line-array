@@ -23,7 +23,7 @@ module.exports = {
 		//.addLine: function (textArray [, linePrefix] )
 		tla.addLine(["k3", "k4"]);
 		tla.add("k5");
-		tla.addLine(["k6", ""]);
+		tla.add(["k6", ""]);	//same as .addLine()
 		tla.add("k7");
 		tla.addLine("k8");
 
@@ -129,10 +129,10 @@ module.exports = {
 
 		var tla = text_line_array();
 
-		tla.lineSplitter= /[\r\n]+/;
+		tla.lineSplitter = /[\r\n]+/;
 
 		tla.add("aaa\r\r\nbbb\r\r\nccc");
-		
+
 		console.log(tla.lineArray);
 
 		done(!(

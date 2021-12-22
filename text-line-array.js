@@ -76,7 +76,8 @@ TextLineArrayClass.prototype = {
 
 	//.addLine: function (textArray [, linePrefix] )
 	addLine: function (textArray, linePrefix) {
-		if (!(textArray instanceof Array)) textArray = [textArray];
+		if (textArray instanceof TextLineArrayClass) textArray = textArray.lineArray;
+		else if (!(textArray instanceof Array)) textArray = [textArray];
 
 		//line prefix
 		linePrefix = linePrefix || "";
@@ -113,10 +114,17 @@ TextLineArrayClass.prototype = {
 
 	toString: function () { return this.lineArray.join("\n"); },
 
+	//combine
+	add: function (textOrArray, linePrefix) {
+		return (typeof textOrArray === "string")
+			? this.addText(textOrArray, linePrefix)
+			: this.addLine(textOrArray, linePrefix);
+	},
+
 };
 
 //shortcut
-var shortcuts = { "add": "addText", "end": "endLine" };
+var shortcuts = { "end": "endLine" };
 for (var i in shortcuts) {
 	TextLineArrayClass.prototype[i] = TextLineArrayClass.prototype[shortcuts[i]];
 }

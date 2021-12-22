@@ -1,6 +1,6 @@
 {
   "name": "text-line-array",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "text line array",
   "main": "text-line-array.js",
   "scripts": {
